@@ -1,0 +1,12 @@
+- hosts: demo
+  user: ec2-user
+  become: yes
+  connction: ssh
+  tasks:
+    name: add list of user
+    user: name='{{item}}' state=present
+    with_item:
+      - sachin
+      - ashish
+      - shubham
+      - abhijit

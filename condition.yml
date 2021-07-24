@@ -1,0 +1,12 @@
+- hosts: demo
+  user: ec2-user
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install apachec on debian
+      command: apt-get -y install apache2
+      when: ansible_os_family=='Debian'
+    
+    - name: install apache for redhat
+      command: yum -y install httpd
+      when: ansible_os_family=="Redhat"
